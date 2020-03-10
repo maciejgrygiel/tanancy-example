@@ -1,0 +1,8 @@
+FROM mysql:5.7
+
+ENV MYSQL_ROOT_PASSWORD secret
+
+RUN	mkdir /usr/sql
+RUN	chmod 644 /usr/sql
+
+ADD ["docker/tenancy.sql", "/usr/sql/tenancy.sql"]

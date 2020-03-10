@@ -1,0 +1,22 @@
+FROM php:7.3-apache
+
+COPY ./ /var/www
+
+COPY docker/vhost.conf /etc/apache2/sites-available/000-default.conf
+
+RUN chown -R www-data:www-data /var/www && a2enmod rewrite
+
+RUN apt-get clean
+RUN apt-get update
+
+RUN apt-get install -y \
+        libzip-dev \
+        zip \
+        git
+
+RUN docker-php-ext-install pdo_mysql mbstring zip
+
+RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+
+RUN echo 'IncludeOptional /var/www/storage/app/tenancy/webserver/apache/*.conf' >> /etc/apache2/apache2.conf
+RUN apache2ctl graceful
