@@ -13,7 +13,7 @@ class Init extends Command
      *
      * @var string
      */
-    protected $signature = 'init:run';
+    protected $signature = 'example:run';
 
     /**
      * The console command description.
@@ -39,8 +39,10 @@ class Init extends Command
      */
     public function handle()
     {
-        $website = new Website();
-        app(WebsiteRepository::class)->create($website);
-        $this->line($website->uuid);
+        for ($i = 0; $i < 1; $i++) {
+            $website = new Website();
+            app(WebsiteRepository::class)->create($website);
+            $this->line($website->uuid);
+        }
     }
 }

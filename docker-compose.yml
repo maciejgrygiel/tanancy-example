@@ -18,6 +18,7 @@ services:
     build:
       context: ./
       dockerfile: docker/sql.docker
+    restart: always
     environment:
       - "MYSQL_DATABASE=homestead"
       - "MYSQL_USER=homestead"
