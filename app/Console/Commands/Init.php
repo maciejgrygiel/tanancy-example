@@ -22,7 +22,7 @@ class Init extends Command
      *
      * @var string
      */
-    protected $description = 'Create 10 new tenants';
+    protected $description = 'Create 5 new tenants';
 
     /**
      * Create a new command instance.
@@ -41,7 +41,7 @@ class Init extends Command
      */
     public function handle()
     {
-        for ($i = 0; $i < 1; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             $website = new Website();
             app(WebsiteRepository::class)->create($website);
 

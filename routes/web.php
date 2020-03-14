@@ -13,4 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'Changelog@index');
+Route::get('/', 'Changelog@index')->name('changelog.index');
+Route::get('/mark/{id}', 'Changelog@markAsRead')->name('changelog.markAsRead');

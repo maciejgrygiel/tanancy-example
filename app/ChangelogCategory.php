@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ChangelogCategory extends Model
 {
     use UsesSystemConnection, SoftDeletes;
+
+    protected $fillable = [
+        'name',
+        'color'
+    ];
 }
