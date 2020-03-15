@@ -49,6 +49,21 @@ return [
             'engine' => null,
         ],
 
+        'tests' => [
+            'driver' => 'mysql',
+            'host' => env('TENANCY_HOST', 'mysql'),
+            'port' => env('TENANCY_PORT', '3306'),
+            'database' => env('TENANCY_DATABASE', 'tenancy_tests'),
+            'username' => env('TENANCY_USERNAME', 'tenancy'),
+            'password' => env('TENANCY_PASSWORD', 'someRandomPassword'),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DATABASE_URL'),
